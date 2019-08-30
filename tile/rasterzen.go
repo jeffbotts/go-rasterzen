@@ -4,21 +4,21 @@ import (
 	"encoding/json"
 	"github.com/go-spatial/geom/slippy"
 	"github.com/tidwall/gjson"
-	"github.com/whosonfirst/go-rasterzen/nextzen"
 	"github.com/whosonfirst/go-whosonfirst-cache"
+	"github.com/sfomuseum/go-tilezen"	
 	"io"
 	"io/ioutil"
 	_ "log"
 )
 
-func RenderRasterzenTile(t slippy.Tile, c cache.Cache, nz_opts *nextzen.Options) (io.ReadCloser, error) {
+func RenderRasterzenTile(t slippy.Tile, c cache.Cache, nz_opts *tilezen.Options) (io.ReadCloser, error) {
 
 	z := int(t.Z)
 	x := int(t.X)
 	y := int(t.Y)
 
 	// key := fmt.Sprintf("%d/%d/%d.json", z, x, y)
-	// nextzen_key := filepath.Join("nextzen", key)
+	// tilezen_key := filepath.Join("tilezen", key)
 	// rasterzen_key := filepath.Join("rasterzen", key)
 
 	nextzen_key := CacheKeyForTile(t, "nextzen", "json")
@@ -39,7 +39,15 @@ func RenderRasterzenTile(t slippy.Tile, c cache.Cache, nz_opts *nextzen.Options)
 
 	if err != nil {
 
-		t, err := nextzen.FetchTile(z, x, y, nz_opts)
+		tile, err := tilezen.NewTile(z, x, y)
+
+		if err != nil {
+			return nil, err
+		}
+
+		tile.Format = "json"
+		
+		t, err := tilezen.FetchTile(tile, nz_opts)
 
 		if err != nil {
 			return nil, err
@@ -90,7 +98,7 @@ func RasterzenToFeatureCollection(in io.Reader, out io.Writer) error {
 
 	features := make([]interface{}, 0)
 
-	for _, l := range nextzen.Layers {
+	for _, l := range tilezen.Layers {
 
 		fc := gjson.GetBytes(body, l)
 

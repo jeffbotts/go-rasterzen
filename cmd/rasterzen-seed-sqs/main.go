@@ -11,11 +11,11 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/go-spatial/geom/slippy"
 	"github.com/jtacoma/uritemplates"
-	"github.com/whosonfirst/go-rasterzen/nextzen"
 	"github.com/whosonfirst/go-rasterzen/tile"
 	"github.com/whosonfirst/go-rasterzen/worker"
 	"github.com/whosonfirst/go-whosonfirst-cache-s3"
 	"github.com/whosonfirst/go-whosonfirst-cli/flags"
+	"github.com/whosonfirst/go-rasterzen/nextzen"	
 	"log"
 	"time"
 )

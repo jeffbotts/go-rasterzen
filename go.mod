@@ -10,6 +10,7 @@ require (
 	github.com/go-spatial/geom v0.0.0-20190706003858-2760310199f5
 	github.com/jtacoma/uritemplates v1.0.0
 	github.com/paulmach/orb v0.1.3
+	github.com/sfomuseum/go-tilezen v0.0.1
 	github.com/shaxbee/go-spatialite v0.0.0-20180425212100-9b4c81899e0e // indirect
 	github.com/srwiley/oksvg v0.0.0-20190414003808-c520f0a6c5cc
 	github.com/srwiley/rasterx v0.0.0-20181219215540-696f7edb7a7e

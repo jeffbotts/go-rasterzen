@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/aaronland/go-string v0.1.1
 	github.com/aws/aws-lambda-go v1.12.1
-	github.com/aws/aws-sdk-go v1.23.4
+	github.com/aws/aws-sdk-go v1.33.0
 	github.com/go-spatial/geom v0.0.0-20190706003858-2760310199f5
 	github.com/jtacoma/uritemplates v1.0.0
 	github.com/paulmach/orb v0.1.3

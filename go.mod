@@ -26,5 +26,5 @@ require (
 	github.com/whosonfirst/go-whosonfirst-crawl v0.2.0
 	github.com/whosonfirst/go-whosonfirst-log v0.1.0
 	github.com/whosonfirst/go-whosonfirst-sqlite v0.1.1
-	golang.org/x/image v0.0.0-20190802002840-cff245a6509b // indirect
+	golang.org/x/image v0.5.0 // indirect
 )
